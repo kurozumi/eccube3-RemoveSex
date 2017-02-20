@@ -1,0 +1,8 @@
+Entry/index.twig:
+    - [onRenderEntry, NORMAL]
+Entry/confirm.twig:
+    - [onRenderEntryConfirm, NORMAL]
+Admin/Customer/edit.twig:
+    - [onRenderCustomerEdit, NORMAL]
+Mypage/change.twig:
+    - [onRenderCustomerEdit, NORMAL]
