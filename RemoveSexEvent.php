@@ -31,7 +31,7 @@ class RemoveSexEvent
     {
         $search = "{% block javascript %}";
         $tag = <<< EOT
-<script>$(function(){ $("#top_box__sex").remove();});</script>\n
+<script>$(function(){ $("#top_box__sex").parent().remove();});</script>\n
 EOT;
         $source = str_replace($search, $search . $tag, $event->getSource());
         $event->setSource($source);
