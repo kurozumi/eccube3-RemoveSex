@@ -24,11 +24,17 @@ class RemoveSexEvent
     public function __construct(Application $app)
     {
         $this->app = $app;
-
+        
+        $this->plugin = $app['orm.em']
+                ->getRepository('Eccube\Entity\Plugin')
+                ->findOneBy(array('code' => 'RemoveJob'));
     }
 
     public function onRenderEntry(TemplateEvent $event)
     {
+        if(is_null($this->plugin))
+            return;
+        
         $search = "{% block javascript %}";
         $tag = <<< EOT
 <script>$(function(){ $("#top_box__sex").parent().remove();});</script>\n
@@ -40,6 +46,9 @@ EOT;
 
     public function onRenderEntryConfirm(TemplateEvent $event)
     {
+        if(is_null($this->plugin))
+            return;
+        
         $script = <<< EOT
 {% block javascript %}
 <script>$(function(){ $("#confirm_box__sex").remove();});</script>\n
@@ -51,6 +60,9 @@ EOT;
 
     public function onRenderCustomerEdit(TemplateEvent $event)
     {
+        if(is_null($this->plugin))
+            return;
+        
         $search = "{% block javascript %}";
         $tag = <<< EOT
 <script>$(function(){ $("#detail_box__sex").remove();});</script>\n
