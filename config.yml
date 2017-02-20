@@ -1,4 +1,4 @@
-name: '性別削除プラグイン for EC-CUBE3'
+name: '性別項目削除プラグイン for EC-CUBE3'
 code: RemoveSex
 version: 1.0.0
 event: RemoveSexEvent
